@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="Theme.Player" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowTranslucentStatus">true</item>
@@ -7,5 +7,13 @@
         <item name="android:colorPrimary">@color/green</item>
         <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="27">shortEdges</item>
         <item name="android:forceDarkAllowed" tools:targetApi="29">false</item>
+    </style>
+
+    <style name="ExoStyledControls.Button">
+        <item name="android:background">@drawable/ripple</item>
+    </style>
+
+    <style name="ExoStyledControls.Button.Center.PlayPause">
+        <item name="android:background">@drawable/ripple</item>
     </style>
 </resources>
