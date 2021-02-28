@@ -143,6 +143,14 @@ public class PlayerActivity extends Activity {
         Utils.setOrientation(this, mPrefs.orientation);
 
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT == 28 && Build.MANUFACTURER.toLowerCase().equals("xiaomi") && Build.DEVICE.toLowerCase().equals("oneday")) {
+            setContentView(R.layout.activity_player_textureview);
+            Utils.log("texture");
+        } else {
+            setContentView(R.layout.activity_player);
+            Utils.log("surface");
+        }
+
         setContentView(R.layout.activity_player);
 
         if (getIntent().getData() != null) {
