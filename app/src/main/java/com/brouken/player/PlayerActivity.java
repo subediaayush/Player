@@ -50,11 +50,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.documentfile.provider.DocumentFile;
-
 import com.brouken.player.dtpv.DoubleTapPlayerView;
 import com.brouken.player.dtpv.youtube.YouTubeOverlay;
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -89,6 +84,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.documentfile.provider.DocumentFile;
 
 public class PlayerActivity extends Activity {
 
@@ -130,6 +131,7 @@ public class PlayerActivity extends Activity {
     private ImageButton buttonOpen;
     private ImageButton buttonPiP;
     private ImageButton buttonAspectRatio;
+    private ImageButton buttonSkipCredits;
     private ImageButton exoPlayPause;
     private ProgressBar loadingProgressBar;
 
@@ -266,6 +268,24 @@ public class PlayerActivity extends Activity {
             resetHideCallbacks();
         });
         Utils.setButtonEnabled(this, buttonAspectRatio, false);
+    
+        buttonSkipCredits = new ImageButton(this, null, 0, R.style.ExoStyledControls_Button_Bottom);
+        buttonSkipCredits.setImageResource(R.drawable.ic_round_fast_forward_24);
+        buttonSkipCredits.setOnClickListener(view -> {
+            long currentPosition = player.getCurrentPosition();
+            long seekAmount = TimeUnit.SECONDS.toMillis(85);
+            player.seekTo(currentPosition + seekAmount);
+            resetHideCallbacks();
+        });
+        buttonSkipCredits.setOnLongClickListener(view -> {
+            long currentPosition = player.getCurrentPosition();
+            long seekAmount = TimeUnit.SECONDS.toMillis(60);
+            player.seekTo(currentPosition + seekAmount);
+            resetHideCallbacks();
+            
+            return true;
+        });
+        Utils.setButtonEnabled(this, buttonSkipCredits, false);
 
         ImageButton buttonRotation = new ImageButton(this, null, 0, R.style.ExoStyledControls_Button_Bottom);
         buttonRotation.setImageResource(R.drawable.ic_auto_rotate_24dp);
@@ -368,6 +388,7 @@ public class PlayerActivity extends Activity {
         controls.addView(buttonOpen);
         controls.addView(exoSubtitle);
         controls.addView(buttonAspectRatio);
+        controls.addView(buttonSkipCredits);
         if (isPiPSupported()) {
             controls.addView(buttonPiP);
         }
@@ -812,6 +833,7 @@ public class PlayerActivity extends Activity {
                 Utils.setButtonEnabled(this, buttonPiP, true);
 
             Utils.setButtonEnabled(this, buttonAspectRatio, true);
+            Utils.setButtonEnabled(this, buttonSkipCredits, true);
 
             ((DoubleTapPlayerView)playerView).setDoubleTapEnabled(true);
 

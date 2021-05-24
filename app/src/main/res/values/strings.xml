@@ -1,8 +1,10 @@
 <resources>
-    <string name="app_name">Just Player</string>
+    <string name="app_name">Web Video Player</string>
 
     <string name="video_resize_fit">Fit</string>
     <string name="video_resize_crop">Crop</string>
+
+    <string name="video_skip_credit">Skip Credits</string>
 
     <string name="video_orientation_video">Video orientation</string>
     <string name="video_orientation_sensor">Auto-rotate</string>

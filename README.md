@@ -76,13 +76,13 @@ If you enable [Caption preferences](https://support.google.com/accessibility/and
 
 Unfortunately, upstream ExoPlayer doesn't handle some older formats like [AVI container](https://github.com/google/ExoPlayer/issues/2092), WMV or [Theora](https://github.com/google/ExoPlayer/issues/4970).
 
-Just Player focuses on playing videos so audio only playback isn't officialy supported. 
+Web Video Player focuses on playing videos so audio only playback isn't officialy supported.
 
 ### Can I play videos that are not stored on the device?
 
 #### Videos in cloud storages - YES
 
-Official cloud storage clients (like [Dropbox](https://play.google.com/store/apps/details?id=com.dropbox.android) or [Google Drive](https://play.google.com/store/apps/details?id=com.google.android.apps.docs)) usually implement all the technical requirements so storage can be browsed when opening video in Just Player.
+Official cloud storage clients (like [Dropbox](https://play.google.com/store/apps/details?id=com.dropbox.android) or [Google Drive](https://play.google.com/store/apps/details?id=com.google.android.apps.docs)) usually implement all the technical requirements so storage can be browsed when opening video in Web Video Player.
 
 #### Video streams on the Internet - Yes (since v0.16-online)
 
@@ -98,7 +98,7 @@ Notes on partial, [experimental support](https://github.com/moneytoo/Player/issu
 
 ## Other open source Android video players
 
-Here's a comparison table presenting all available and significant open source video players for Android I was able to find. Just Player is something like 80% feature complete. It will probably never have dozens of options or some rich media library UI. It will never truly compete with feature rich VLC. It just attempts to provide functional feature set and motive others to create greater players based on amazing ExoPlayer.
+Here's a comparison table presenting all available and significant open source video players for Android I was able to find. Web Video Player is something like 80% feature complete. It will probably never have dozens of options or some rich media library UI. It will never truly compete with feature rich VLC. It just attempts to provide functional feature set and motive others to create greater players based on amazing ExoPlayer.
 
 | App name (source)                                                           | Tested version        | Media engine                                                                                                                                                            | Internet access | Subtitles (embedded)                                  | DTS/AC3/E-AC3 decoders | PiP                      | Cutout (notch) | HDR (4K 60 FPS HEVC)        | HDR (4K 60 FPS VP9)         | Gestures                  |
 | --------------------------------------------------------------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ----------------------------------------------------- | ---------------------- | ------------------------ | -------------- | --------------------------- | --------------------------- | ------------------------- |
